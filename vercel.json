@@ -1,22 +1,29 @@
 {
   "functions": {
-    "api/*.php": {
-      "runtime": "vercel-php@0.7.2"
-    },
-    "*.php": {
-      "runtime": "vercel-php@0.7.2"
-    },
-    "pages/**/*.php": {
-      "runtime": "vercel-php@0.7.2"
-    },
-    "sections/**/*.php": {
+    "api/**/*.php": {
       "runtime": "vercel-php@0.7.2"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/index.php",
+      "destination": "/api/index.php"
+    },
+    {
+      "source": "/dashboard.php",
+      "destination": "/api/dashboard.php"
+    },
+    {
+      "source": "/recovery.php",
+      "destination": "/api/recovery.php"
+    },
+    {
+      "source": "/test.php",
+      "destination": "/api/test.php"
+    },
+    {
+      "source": "/",
+      "destination": "/api/index.php"
     }
   ]
 }

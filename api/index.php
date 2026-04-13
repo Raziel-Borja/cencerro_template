@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'includes/head.php'; ?>
+<?php include '../includes/head.php'; ?>
 
 <body>
   <div class="container-scroller">
@@ -11,11 +11,11 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <!-- <img src="/lone_star/images/logo.png" alt="logo"> -->
+                <img src="http://localhost:8000/images/logo.png" alt="logo">
               </div>
-              <h4>¡Recupera tu contraseña!</h4>
-              <h6 class="font-weight-light">Ingresa tu correo electrónico para recuperar tu contraseña</h6>
-              <form id="form-recovery" class="pt-3">
+              <h4 class="title-bienvenido">¡Bienvenido!</h4>
+              <h6 class="font-weight-light subtitle-bienvenido">Ingresa con tus credenciales</h6>
+              <form id="form-login-alseg" class="pt-3">
                 <div class="form-group">
                   <label for="exampleInputEmail">Correo electrónico</label>
                   <div class="input-group">
@@ -27,17 +27,39 @@
                     <input type="text" class="form-control form-control-lg border-left-0" id="email" name="email" placeholder="email">
                   </div>
                 </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword">Contraseña</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend bg-transparent">
+                      <span class="input-group-text bg-transparent border-right-0">
+                        <i class="mdi mdi-lock-outline text-primary"></i>
+                      </span>
+                    </div>
+                    <input type="password" class="form-control form-control-lg border-left-0" id="password" name="password" placeholder="password">                        
+                  </div>
+                </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
-                  <a href="index.php" class="auth-link text-black">¿Te acordaste de tu contraseña?</a>
+                  <a href="/recovery.php" class="auth-link text-black">¿Se te olvido tu contraseña?</a>
                 </div>
                 <div class="my-3">
-                  <a onclick="recovery_password();" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="javascript:void(0);">RECUPERAR</a>
+                  <a onclick="login();" id="btn-login" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="javascript:void(0);">INGRESA</a>
                 </div>
+                <!-- <div class="mb-2 d-flex">
+                  <button type="button" class="btn btn-facebook auth-form-btn flex-grow me-1">
+                    <i class="mdi mdi-facebook me-2"></i>Facebook
+                  </button>
+                  <button type="button" class="btn btn-google auth-form-btn flex-grow ms-1">
+                    <i class="mdi mdi-google me-2"></i>Google
+                  </button>
+                </div>
+                <div class="text-center mt-4 font-weight-light">
+                  Don't have an account? <a href="register-2.html" class="text-primary">Create</a>
+                </div> -->
               </form>
             </div>
           </div>
           <div class="col-lg-6 login-half-bg d-flex flex-row">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2023  Todos los derechos reservados.</p>
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2024  Todos los derechos reservados.</p>
           </div>
         </div>
       </div>
