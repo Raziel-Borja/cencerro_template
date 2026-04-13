@@ -1,0 +1,6 @@
+.DS_Store
+/vendor/
+/vendors/base/
+node_modules/
+*.log
+uploads/
