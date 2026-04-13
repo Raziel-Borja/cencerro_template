@@ -1,54 +1,63 @@
 <?php 
+    header('Content-Type: application/json');
+    ini_set('display_errors', 0);
+    error_reporting(E_ALL);
 
-    include '../db/connection.php';
+    try {
+        include dirname(__DIR__) . '/db/connection.php';
 
-    $email = $_POST['email'];
-    $password = md5($_POST['password']);
+        $email = $_POST['email'];
+        $password = md5($_POST['password']);
 
-	$info = [];
-    $data = [];
+        $info = [];
+        $data = [];
 
-    $queryInsert = sprintf("SELECT u.*, p.privilege_name FROM users_tb as u
-    LEFT JOIN privileges_tb as p ON p.privilege_id = u.user_privileges
-    WHERE u.user_email = '%s' AND u.user_password = '%s' AND u.user_disabled = '%s'", $email, $password, 0);
-	$rsInsert = mysqli_query($conn,$queryInsert);
-	$rowsInsert = mysqli_fetch_assoc($rsInsert);
-	$totalRowsInsert = mysqli_num_rows($rsInsert);
+        $queryInsert = sprintf("SELECT u.*, p.privilege_name FROM users_tb as u
+        LEFT JOIN privileges_tb as p ON p.privilege_id = u.user_privileges
+        WHERE u.user_email = '%s' AND u.user_password = '%s' AND u.user_disabled = '%s'", $email, $password, 0);
+        $rsInsert = mysqli_query($conn,$queryInsert);
+        $rowsInsert = mysqli_fetch_assoc($rsInsert);
+        $totalRowsInsert = mysqli_num_rows($rsInsert);
 
-    if ($totalRowsInsert>0) {
+        if ($totalRowsInsert>0) {
 
-        array_push($data, array(
-            'id' => $rowsInsert['user_id'], 
-            'name' => $rowsInsert['user_name'].' '.$rowsInsert['user_lastname'],
-            'email' => $rowsInsert['user_email'],
-            'image' => $rowsInsert['user_image'],
-            'privilege_name' => $rowsInsert['privilege_name'],
-            'privileges' => $rowsInsert['user_privileges'])
-        );
+            array_push($data, array(
+                'id' => $rowsInsert['user_id'], 
+                'name' => $rowsInsert['user_name'].' '.$rowsInsert['user_lastname'],
+                'email' => $rowsInsert['user_email'],
+                'image' => $rowsInsert['user_image'],
+                'privilege_name' => $rowsInsert['privilege_name'],
+                'privileges' => $rowsInsert['user_privileges'])
+            );
 
-        $error = false;
-        $msg_error = 'Logueado con exito';
+            $error = false;
+            $msg_error = 'Logueado con exito';
 
-    //Si no lo buscamos como agente
-    } else {
+        //Si no lo buscamos como agente
+        } else {
 
-
-        $error = true;
-        $msg_error = 'Lo sentimos, por favor verifica tu correo electrónico y/o contraseña';
+            $error = true;
+            $msg_error = 'Lo sentimos, por favor verifica tu correo electrónico y/o contraseña';
+            
+        }
         
+
+        $info = [
+            "data" => 
+                $data,
+            "error" => 
+                $error,
+            "message" => 
+                $msg_error
+        ];
+
+        echo json_encode($info);
+
+    } catch (Exception $e) {
+        echo json_encode([
+            'error' => true,
+            'message' => 'Error interno del servidor: ' . $e->getMessage(),
+            'data' => []
+        ]);
     }
-    
-
-    $info = [
-        "data" => 
-            $data,
-        "error" => 
-            $error,
-        "message" => 
-            $msg_error
-    ];
-
-
-    print_r(json_encode($info));
-
 ?>

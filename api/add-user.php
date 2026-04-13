@@ -1,6 +1,9 @@
 <?php 
+    header('Content-Type: application/json');
+    ini_set('display_errors', 0);
+    error_reporting(E_ALL);
 
-    include '../db/connection.php';
+    include dirname(__DIR__) . '/db/connection.php';
 
     $name = $_POST['name-user'];
     $lastname = $_POST['lastname-user'];
@@ -60,6 +63,6 @@
     ];
 
 
-    print_r(json_encode($info));
+    echo json_encode($info);
 
 ?>

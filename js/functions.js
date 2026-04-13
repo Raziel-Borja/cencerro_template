@@ -1,6 +1,8 @@
 var urlApi = "/api/";
 
-$(".js-example-basic-single").select2();
+if (typeof $.fn.select2 !== 'undefined') {
+   $(".js-example-basic-single").select2();
+}
 
 
 function initTooltip() {
@@ -37,7 +39,12 @@ function getIndicatorsDash() {
 
       })//Si es exitosa la llamada entonces...
       .then(function (texto) {
-         var datos = JSON.parse(texto);
+         var datos;
+         try { datos = JSON.parse(texto); } catch(e) {
+            console.error('Respuesta no válida del servidor:', texto);
+            alert('Error de conexión con el servidor.');
+            return;
+         }
          console.log(datos);
 
          if (datos.ordenes.length > 0) {
@@ -171,7 +178,12 @@ function login() {
 
       })
       .then(function (texto) {
-         var datos = JSON.parse(texto);
+         var datos;
+         try { datos = JSON.parse(texto); } catch(e) {
+            console.error('Respuesta no válida del servidor:', texto);
+            alert('Error de conexión con el servidor.');
+            return;
+         }
          console.log(datos);
          if (datos.error == false) {
             localStorage.setItem("sessionAirCDMX", JSON.stringify(datos.data[0]));
@@ -250,7 +262,12 @@ function recovery_password() {
 
       })//Si es exitosa la llamada entonces...
       .then(function (texto) {
-         var datos = JSON.parse(texto);
+         var datos;
+         try { datos = JSON.parse(texto); } catch(e) {
+            console.error('Respuesta no válida del servidor:', texto);
+            alert('Error de conexión con el servidor.');
+            return;
+         }
          console.log(datos);
          if (datos.error == false) {
             alert(datos.message);
@@ -307,7 +324,12 @@ const createUser = () => {
 
             })//Si es exitosa la llamada entonces...
             .then(function (texto) {
-               var datos = JSON.parse(texto);
+               var datos;
+               try { datos = JSON.parse(texto); } catch(e) {
+                  console.error('Respuesta no válida del servidor:', texto);
+                  alert('Error de conexión con el servidor.');
+                  return;
+               }
                console.log(datos);
                if (datos.error == false) {
                   alert('Usuario creado con exito.');
@@ -385,7 +407,12 @@ function getListUsers() {
 
       })
       .then(function (texto) {
-         var datos = JSON.parse(texto);
+         var datos;
+         try { datos = JSON.parse(texto); } catch(e) {
+            console.error('Respuesta no válida del servidor:', texto);
+            alert('Error de conexión con el servidor.');
+            return;
+         }
          console.log(datos);
 
          //Variables para paginacion antes y despues
@@ -534,7 +561,12 @@ function filterUsers(e) {
 
          })//Si es exitosa la llamada entonces...
          .then(function (texto) {
-            var datos = JSON.parse(texto);
+            var datos;
+            try { datos = JSON.parse(texto); } catch(e) {
+               console.error('Respuesta no válida del servidor:', texto);
+               alert('Error de conexión con el servidor.');
+               return;
+            }
             console.log(datos);
             //Variables para paginacion antes y despues
             var pagebefore = parseInt(datos.page_number) - 1;
@@ -660,7 +692,12 @@ const getInfoUser = () => {
 
       })//Si es exitosa la llamada entonces...
       .then(function (texto) {
-         var datos = JSON.parse(texto);
+         var datos;
+         try { datos = JSON.parse(texto); } catch(e) {
+            console.error('Respuesta no válida del servidor:', texto);
+            alert('Error de conexión con el servidor.');
+            return;
+         }
          console.log(datos);
          if (datos.error == false) {
 
@@ -723,7 +760,12 @@ function saveUser() {
 
             })//Si es exitosa la llamada entonces...
             .then(function (texto) {
-               var datos = JSON.parse(texto);
+               var datos;
+               try { datos = JSON.parse(texto); } catch(e) {
+                  console.error('Respuesta no válida del servidor:', texto);
+                  alert('Error de conexión con el servidor.');
+                  return;
+               }
                console.log(datos);
                if (datos.error == false) {
                   //Actualizamos la sesion
@@ -767,7 +809,12 @@ function deleteUser(id) {
 
          })//Si es exitosa la llamada entonces...
          .then(function (texto) {
-            var datos = JSON.parse(texto);
+            var datos;
+            try { datos = JSON.parse(texto); } catch(e) {
+               console.error('Respuesta no válida del servidor:', texto);
+               alert('Error de conexión con el servidor.');
+               return;
+            }
             console.log(datos);
             if (datos.error == false) {
                alert('Usuario eliminado con exito.');
@@ -799,7 +846,12 @@ const getPrivileges = () => {
 
       })
       .then(function (texto) {
-         var datos = JSON.parse(texto);
+         var datos;
+         try { datos = JSON.parse(texto); } catch(e) {
+            console.error('Respuesta no válida del servidor:', texto);
+            alert('Error de conexión con el servidor.');
+            return;
+         }
          console.log(datos);
 
          for (let i = 0; i < datos.data.length; i++) {

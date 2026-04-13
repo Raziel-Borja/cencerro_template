@@ -21,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyD6aKacCAs6KpAn4GMCqBGNiKUzQC9pwzI"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyD6aKacCAs6KpAn4GMCqBGNiKUzQC9pwzI&loading=async"></script>
     
     <link href='/fullcalendar/core/main.css' rel='stylesheet' />
     <link href='/fullcalendar/daygrid/main.css' rel='stylesheet' />

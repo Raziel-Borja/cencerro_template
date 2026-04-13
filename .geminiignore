@@ -1,0 +1,23 @@
+# Ignorar assets pesados que no necesitan ser indexados
+vendors/
+vendor/
+node_modules/
+fonts/
+images/
+uploads/
+fullcalendar/
+css/maps/
+scss/
+.DS_Store
+*.map
+*.min.js
+*.min.css
+*.woff
+*.woff2
+*.ttf
+*.eot
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
