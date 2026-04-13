@@ -1,4 +1,4 @@
-var urlApi = "http://localhost:8000/api/";
+var urlApi = "/api/";
 
 $(".js-example-basic-single").select2();
 
@@ -191,7 +191,7 @@ function login() {
 function closeSession() {
    if (confirm("¿Estás seguro de cerrar sesión?") == true) {
       localStorage.removeItem('sessionAirCDMX');
-      window.location = "http://localhost:8000/index.php";
+      window.location = "/index.php";
    }
 }
 
@@ -201,14 +201,14 @@ function checkSession() {
    console.log(session);
 
    if (session === null) {
-      window.location = 'http://localhost:8000/index.php';
+      window.location = '/index.php';
    }
 }
 
 function checkSession2() {
    var session = JSON.parse(localStorage.getItem('sessionAirCDMX'));
    if (session !== null) {
-      window.location = 'http://localhost:8000/dashboard.php';
+      window.location = '/dashboard.php';
    }
 }
 

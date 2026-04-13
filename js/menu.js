@@ -1,4 +1,4 @@
-var url = "http://localhost:8000/";
+var url = "/";
 
 function initMenu() {
 
@@ -9,21 +9,21 @@ function initMenu() {
     //Menu para superadmin
     if (session.privileges == '1') {
         document.getElementById("menu-content").innerHTML = '<li class="nav-item">' +
-            '<a href="http://localhost:8000/sections/users/list.php" class="nav-link">' +
+            '<a href="/sections/users/list.php" class="nav-link">' +
             '<i class="mdi mdi-account-key menu-icon"></i>' +
             '<span class="menu-title">Usuarios</span>' +
             '<i class="menu-arrow"></i>' +
             '</a>' +
             '</li>' +
             '<li class="nav-item">' +
-            '<a href="http://localhost:8000/sections/users/list.php" class="nav-link">' +
+            '<a href="/sections/users/list.php" class="nav-link">' +
             '<i class="mdi mdi-account-key menu-icon"></i>' +
             '<span class="menu-title">Edificios</span>' +
             '<i class="menu-arrow"></i>' +
             '</a>' +
             '</li>' +
             '<li class="nav-item">' +
-            '<a href="http://localhost:8000/sections/users/list.php" class="nav-link">' +
+            '<a href="/sections/users/list.php" class="nav-link">' +
             '<i class="mdi mdi-account-key menu-icon"></i>' +
             '<span class="menu-title">Departamentos</span>' +
             '<i class="menu-arrow"></i>' +
@@ -37,7 +37,7 @@ function initMenu() {
             '</a>' +
             '<div class="submenu">' +
             '<ul class="submenu-item">' +
-            '<li class="nav-item"><a class="nav-link" href="http://localhost:8000/sections/users/list.php">Usuarios</a></li>' +
+            '<li class="nav-item"><a class="nav-link" href="/sections/users/list.php">Usuarios</a></li>' +
             '</ul>' +
             '</div>' +
             '</li>';

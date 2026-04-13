@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include '../includes/head.php'; ?>
+<?php include dirname(__DIR__) . '/includes/head.php'; ?>
 
 <body>
   <div class="container-scroller">

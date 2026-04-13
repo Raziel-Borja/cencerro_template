@@ -17,7 +17,7 @@
                 'id' => $rowsInsert['id'], 
                 'name' => $rowsInsert['name'],
                 'image' => $rowsInsert['image'],
-                'ruta' => 'http://localhost:8000/uploads/departamentos/'.$rowsInsert['id'].'/'.$rowsInsert['image'].''
+                'ruta' => '/uploads/departamentos/'.$rowsInsert['id'].'/'.$rowsInsert['image'].''
                 )
             );
         } while ($rowsInsert = mysqli_fetch_assoc($rsInsert));

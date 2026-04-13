@@ -23,7 +23,7 @@
             'email' => $rowsInsert['user_email'],
             'phone' => $rowsInsert['user_phone'],
             'image' => $rowsInsert['user_image'],
-            'url' => 'http://localhost:8000/uploads/users/'.$rowsInsert['id'].'/'.$rowsInsert['image'].'', 
+            'url' => '/uploads/users/'.$rowsInsert['id'].'/'.$rowsInsert['image'].'', 
             'privilege_name' => $rowsInsert['privilege_name'],
             'privileges' => $rowsInsert['user_privileges'])
         );
@@ -44,7 +44,7 @@
             'id' => $rowsInsert2['id'], 
             'name' => $rowsInsert2['name'], 
             'image' => $rowsInsert2['image'],
-            'url' => 'http://localhost:8000/uploads/departamentos/'.$rowsInsert2['id'].'/'.$rowsInsert2['image'].'' 
+            'url' => '/uploads/departamentos/'.$rowsInsert2['id'].'/'.$rowsInsert2['image'].'' 
             )
         );
         

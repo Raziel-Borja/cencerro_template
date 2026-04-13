@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-   <?php include '../includes/head.php'; ?>
+   <?php include dirname(__DIR__) . '/includes/head.php'; ?>
    <body>
       <div class="container-scroller">
-         <?php include '../includes/navbar.php'; ?>
+         <?php include dirname(__DIR__) . '/includes/navbar.php'; ?>
          <!-- partial -->
          <div class="container-fluid page-body-wrapper">
             <div class="main-panel">
@@ -28,13 +28,13 @@
 
                </div>
                <!-- content-wrapper ends -->
-               <?php include '../includes/footer.php'; ?>
+               <?php include dirname(__DIR__) . '/includes/footer.php'; ?>
             </div>
             <!-- main-panel ends -->
          </div>
          <!-- page-body-wrapper ends -->
       </div>
-	  <?php include '../includes/scripts.php'; ?>
+	  <?php include dirname(__DIR__) . '/includes/scripts.php'; ?>
    </body>
 
 
